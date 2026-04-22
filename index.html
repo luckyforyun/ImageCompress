@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="title">Lumina Compress</title>
+  <meta name="description" content="Professional Image Compression & Conversion Tool">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="title">
+        <h1 data-i18n="title">Lumina Compress</h1>
+        <p data-i18n="subtitle">Professional Image Compression & Conversion</p>
+      </div>
+      <div class="lang-selector">
+        <select id="lang-select">
+          <option value="en">English</option>
+          <option value="zh">中文 (简体)</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <div class="dropzone" id="dropzone">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+        </svg>
+        <p data-i18n="dropzoneText">Drag & drop your image here, or click to browse</p>
+        <input type="file" id="file-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+      </div>
+
+      <div class="settings-panel" id="settings-panel">
+        <div class="form-group">
+          <label data-i18n="formatLabel">Output Format</label>
+          <select id="format-select">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/png">PNG</option>
+            <option value="image/webp">WEBP</option>
+          </select>
+        </div>
+        <div class="form-group" id="quality-group">
+          <label data-i18n="qualityLabel">Compression Quality</label>
+          <input type="range" id="quality-slider" min="0.1" max="1" step="0.1" value="0.8">
+          <div class="quality-value" id="quality-value">80%</div>
+        </div>
+      </div>
+
+      <div class="preview-panel" id="preview-panel">
+        <div class="image-preview">
+          <img id="preview-img" src="" alt="Preview">
+          <div class="file-info">
+            <p><strong><span id="file-name">filename.jpg</span></strong></p>
+            <p><span data-i18n="originalSize">Original Size</span>: <span id="original-size" class="size-tag">-</span></p>
+            <p><span data-i18n="compressedSize">New Size</span>: <span id="compressed-size" class="size-tag">-</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="status" id="status-text" data-i18n="statusIdle">Waiting for image...</div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="process-btn" disabled>
+          <svg style="width:20px;height:20px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+          </svg>
+          <span data-i18n="processBtn">Process Image</span>
+        </button>
+        <button class="btn btn-secondary" id="download-btn" disabled>
+          <svg style="width:20px;height:20px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <span data-i18n="downloadBtn">Download Image</span>
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
